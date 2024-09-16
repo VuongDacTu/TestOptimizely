@@ -1,0 +1,43 @@
+﻿@inherits Blend.Cms12.Views.AlloyPageBase<PageViewModel<CuratePage>>
+
+<img style="width:100%; height:auto;" src="@Url.ContentUrl(Model.CurrentPage.ImageBanner)">
+@{
+    await Html.RenderPartialAsync("Breadcrumbs", Model);
+}
+<div class="ll-frame frame-size-70 padding-box-4">
+	<div class="ll-sub-menu-wrapper box-size-25">
+		<span class="font_x_extreme bold">@Model.CurrentPage.Content</span>
+	</div>
+
+	<!-- Article Content -->
+	<div id="pn_article_root" class="box-size-75 to-right">
+		<h3>About Curate+</h3>
+
+		@Html.Raw(Model.CurrentPage.Description)
+		<hr style="color:#fefefe;">
+
+		<p>
+			<br>
+		</p>
+
+		<h3>Curate+ Events</h3>
+
+		<table style="border: 0px solid black; border-collapse: collapse;" width="100%">
+			<tbody>
+				<tr style="border: 0px solid black; border-collapse: collapse;">
+					@if (Model.CurrentPage?.Events?.Items != null)
+					{
+						@foreach (var item in Model.CurrentPage.Events.Items)
+						{
+							var content = item.GetContent();
+							if (content != null)
+							{
+								Html.RenderContentData(content, false);
+							}
+						}
+					}
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

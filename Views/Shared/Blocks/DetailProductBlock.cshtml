@@ -1,0 +1,33 @@
+﻿@using Blend.Cms12.Models.Blocks
+@model ProductBlock
+<div id="ll-banner" class="ll-frame ll-slideShow" ll-percent-space="0">
+    <!-- Banner 1 -->
+    <ul class="sld-wrapper">
+        <li class="item">
+            <a class="thumb" style="background-image: url('@Url.ContentUrl(Model.Banner)')"></a>
+            <a class="thumb_mobile" style="background-image: url('@Url.ContentUrl(Model.Banner)')"></a>
+            <!-- Caption -->
+            <!-- <div class="caption-box to-left">
+                <span class="font_xx_extreme">Add a Plus to your<br />shopping experience</span>
+                <span class="font_small">With the new LendLease Plus app, get instant rewards and<br />redemptions
+                    when you shop!
+                </span>
+            </div> -->
+        </li>
+    </ul>
+</div>
+<div class="ll-frame frame-size-70">
+    <span class="ll-frame box-size-100 font_large  margin-top-xx-extreme bold">Dr. Kong Atrium at Jem Leave B1</span>
+    <span class="ll-frame margin-top-xx-extreme">
+        <i class="bi bi-geo-alt"></i>
+        @Model.Name
+    </span>
+    <span class="ll-frame margin-top-large">
+        <i class="bi bi-clock"></i>
+        @Model.OpenTime.ToString("dd MMM") - @Model.CloseTime.ToString("dd MMM")
+    </span>
+    <div id="panel_description" class="ll-frame box-size-100 border-top-dark margin-top-extreme padding-box-top-bot-2">
+        <span class="title">@Html.Raw(Model.Description)</span>
+    </div>
+</div>
+<p class="padding-box-3"></p>

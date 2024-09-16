@@ -1,0 +1,36 @@
+﻿@using Blend.Cms12.Models.Blocks.DownloadApp
+@inherits Blend.Cms12.Views.AlloyPageBase<PageViewModel<DownloadPage>>
+@{
+    Layout = "~/Views/Shared/Layouts/_Root.cshtml";
+}
+@{
+    await Html.RenderPartialAsync("Breadcrumbs", Model);
+}
+
+<div class="home-section-1 ll-frame frame-size-70 border-bottom-dark" style="background-image: url('@Url.ContentUrl(Model.CurrentPage.Image)')">
+    <div class="ll-widget-box direct-box-right box-size-50 padding-box-top-bot-25 content-center">
+        <div class="box-size-100 to-center child-space-ver-10">
+            <span class="ll-widget-lb-title">
+                @Model.CurrentPage.Content
+            </span>
+            <span class="ll-widget-lb-default margin-bottom-larger box-size-85">
+                @Model.CurrentPage.Description
+
+            </span>
+            @{
+                foreach (var item in Model.CurrentPage.ContentArea?.FilteredItems ?? Enumerable.Empty<ContentAreaItem>())
+                {
+                    var content = item.GetContent();
+                    if (content != null)
+                    {
+                        Html.RenderContentData(content, false);
+                    }
+                }
+            }
+            <!-- <br />
+            <a class="ll-widget-rounder-button inline-block" href="" target="_blank" rel="noreferrer">
+                <span class="ic_download">Download Android</span>
+            </a> -->
+        </div>
+    </div>
+</div>

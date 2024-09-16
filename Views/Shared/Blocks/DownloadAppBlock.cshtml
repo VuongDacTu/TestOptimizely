@@ -1,0 +1,32 @@
+﻿@using Blend.Cms12.Models.Blocks.DownloadApp
+@using EPiServer.Core
+
+@model DownloadAppBlock
+<div class="home-section-1 ll-frame frame-size-70 border-bottom-dark" style="background-image: url('@Url.ContentUrl(Model.BackgroundImage)')">
+    <div class="ll-widget-box direct-box-right box-size-50 padding-box-top-bot-25 content-center">
+        <div class="box-size-100 to-center child-space-ver-10">
+            <span class="ll-widget-lb-title">
+                @Model.Heading
+            </span>
+            <span class="ll-widget-lb-default margin-bottom-larger box-size-85">
+                @Model.Description
+
+            </span>
+            @if (Model?.AppSelections?.Items != null)
+            {
+                @foreach (var item in Model.AppSelections.Items)
+                {
+                    var block = item?.GetContent() as DownloadSelectBlock;
+                    if (block != null)
+                    {
+                        await Html.RenderPartialAsync("DownloadSelectBlock", block);
+                    }
+                }
+            }
+            <!-- <br />
+            <a class="ll-widget-rounder-button inline-block" href="" target="_blank" rel="noreferrer">
+                <span class="ic_download">Download Android</span>
+            </a> -->
+        </div>
+    </div>
+</div>

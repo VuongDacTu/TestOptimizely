@@ -1,0 +1,22 @@
+﻿@using Blend.Cms12.Models.Blocks.Curate
+@model EventBlock
+<tr>
+<td style="border: 0px solid black; border-collapse: collapse; padding-top: 20px;vertical-align: top;" width="30%"><img src="@Url.ContentUrl(Model.Image)" style="width: 100%;" class="fr-fic fr-dib"></td>
+<td style="border: 0px solid black; border-collapse: collapse; padding-left: 30px; padding-top:20px;" width="50%">
+	<a href="@Url.ContentUrl(Model.Url)"><u><strong>@Model.Title</strong></u></a>
+		<br>Date: @Model.Date1.ToString("dd MMM yyyy") to @Model.Date2.ToString("dd MMM yyyy")
+	<br>Location: @Model.Location
+	<br>
+	@Html.Raw(Model.Description)
+	<br>
+	<br><a href="@Url.ContentUrl(Model.Url)"><u>Find out more</u></a>
+	<br>
+	<div data-empty="true">
+		<br>
+	</div>
+</td>
+				</tr>
+<tr>
+	<td class="fr-cell-handler" colspan="2" style="width: 99.9657%; padding-bottom:30px">
+		<hr style="color:#fefefe;">
+	</td>

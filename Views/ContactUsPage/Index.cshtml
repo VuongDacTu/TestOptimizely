@@ -1,0 +1,71 @@
+﻿@inherits Blend.Cms12.Views.AlloyPageBase<PageViewModel<Blend.Cms12.Models.Pages.ContactUsPage>>
+
+@{
+    Layout = "~/Views/Shared/Layouts/_Root.cshtml";
+}
+@{
+    await Html.RenderPartialAsync("Breadcrumbs", Model);
+}
+<form data-request="onSend" data-request-validate="" data-request-success="refreshCaptcha()">
+    <div class="ll-form ll-frame frame-size-70">
+        <span class="font_x_extreme bold padding-box-top-bot-3 uppercase">Send us a message</span>
+        <!-- Row 1 -->
+        <!-- col 1 -->
+        <div class="box-size-25 to-left">
+            <div class="ll-widget-col-input box-size-100">
+                <span>Name*</span>
+                <input id="txt_name" name="name" type="text">
+            </div>
+
+            <div class="ll-widget-col-input box-size-100">
+                <span>Mobile*</span>
+                <span class="holder-text">
+                    +65
+                </span>
+                <input id="txt_mobile" type="text" name="mobile">
+            </div>
+
+
+            <div class="ll-widget-col-input box-size-100" style="width: 100%;margin-left: 0">
+                <span>Email</span>
+                <input id="txt_email" type="text" name="email">
+            </div>
+
+        </div>
+
+        <div class="ll-widget-col-input box-size-30" style="margin-left: 5%; margin-right: 5%">
+            <span>Feedback*</span>
+            <select name="enquiry" id="dropdown_enquiry">
+                <option value="Feedback on Mobile Application" selected="">Feedback on Mobile Application</option>
+                <option value="Lendlease Plus Program Enquiries">Lendlease Plus Program Enquiries</option>
+            </select>
+        </div>
+
+        <div class="ll-widget-col-input to-right box-size-35">
+            <span>Subject</span>
+            <input id="txt_subject" name="subject" type="text" value="">
+        </div>
+
+        <div class="ll-widget-col-input box-size-70" style="margin-left: 5%;margin-bottom: 0">
+            <span>Your Message*</span>
+            <textarea rows="5" name="message" wrap="hard" style="line-height: 1.4em" id="txt_message"></textarea>
+        </div>
+
+
+        <!-- Row 3 -->
+        <!-- Captcha -->
+        <!-- Dev -->
+        <div class="box-size-100  inline-block  padding-box-5">
+            <div id="recaptcha" class="g-recaptcha to-right" data-callback="onCaptchaValid" data-sitekey="6Ld9Y3YUAAAAAGEPcgdT2Gj1WxiXEk4IKW1bSWet"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" width="304" height="78" role="presentation" name="a-82s7jdg1oxv9" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Ld9Y3YUAAAAAGEPcgdT2Gj1WxiXEk4IKW1bSWet&amp;co=aHR0cHM6Ly93d3cubGVuZGxlYXNlcGx1cy5jb206NDQz&amp;hl=vi&amp;v=EGbODne6buzpTnWrrBprcfAY&amp;size=normal&amp;cb=ios43lqenowr"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div>
+        </div>
+
+
+        <!-- Row 4 - submit -->
+        <div id="panel_submit" class="box-size-100 inline-block padding-box-top-bot-2 child-space-horz-10 content-right">
+            <button id="btn_submit" class="ll-widget-rounder-button ">
+                Submit
+            </button>
+
+        </div>
+    </div>
+</form>

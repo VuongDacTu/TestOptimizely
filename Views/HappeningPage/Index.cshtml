@@ -1,0 +1,43 @@
+﻿@inherits Blend.Cms12.Views.AlloyPageBase<PageViewModel<HappeningPage>>
+
+@{
+    Layout = "~/Views/Shared/Layouts/_Root.cshtml";
+}
+@{
+    await Html.RenderPartialAsync("Breadcrumbs", Model);
+}
+@{
+    HelperResult ItemTemplate(HtmlHelpers.MenuItem item)
+    {
+
+            <a id="btn_promotion" class="ll-widget-tab-button" href="@Url.ContentUrl(item.Page.PageLink)" class="@(item.Selected ? "selected" : null)">
+                <span>@item.Page.PageName</span>
+            </a>
+
+        return new HelperResult(w => Task.CompletedTask);
+    }
+}
+<div class="ll-frame frame-size-70">
+    <div class="tab-group box-size-100 padding-box-top-bot-4 child-space-horz-25">
+
+        @Html.MenuList(Model.Section.ContentLink, ItemTemplate)
+
+    </div>
+    <div id="ll-promo-list" class="ll-promo-wrapper box-size-100 ll-slideShow" ll-percent-space="3">
+        <ul class="sld-wrapper" style="display:flex; justify-content:space-around; flex-wrap:wrap">
+            @{
+                foreach (var item in Model.CurrentPage.ContentArea?.FilteredItems ?? Enumerable.Empty<ContentAreaItem>())
+                {
+                    var content = item.GetContent();
+
+                    if (content != null)
+                    {
+                        Html.RenderContentData(content, false);
+                    }
+                }
+            }
+        </ul>
+        <input type="hidden" name="promotion_page" value="6">
+        <input type="hidden" name="per_page" value="8">
+    </div>
+</div>

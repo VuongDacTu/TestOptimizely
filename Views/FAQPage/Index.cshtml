@@ -1,0 +1,7 @@
+﻿@inherits Blend.Cms12.Views.AlloyPageBase<PageViewModel<FAQPage>>
+@{
+    Layout = "~/Views/Shared/Layouts/_Navigation.cshtml";
+}
+
+<p style="padding-bottom:35px"><strong>@Model.CurrentPage.Content</strong></p>
+@Html.Raw(Model.CurrentPage.Description)

@@ -1,0 +1,19 @@
+﻿@inherits Blend.Cms12.Views.AlloyPageBase<PageViewModel<BenefitPage>>
+@{
+    Layout = "~/Views/Shared/Layouts/_LeftNavigation.cshtml";
+}
+
+<div id="pn_article_root" class="box-size-75 to-right">
+
+@{
+    foreach (var item in Model.CurrentPage.ContentArea?.FilteredItems ?? Enumerable.Empty<ContentAreaItem>())
+    {
+        var content = item.GetContent();
+
+        if (content != null)
+        {
+            Html.RenderContentData(content, false);
+        }
+    }
+}
+</div>

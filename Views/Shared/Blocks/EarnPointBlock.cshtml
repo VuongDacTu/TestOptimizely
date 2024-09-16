@@ -1,0 +1,15 @@
+﻿@using Blend.Cms12.Models.Blocks.Benefits
+@model EarnPointBlock
+
+<div class="box-size-100 " style="display: block;">
+	<p><span class="title font_extreme bold box-size-100 to-left uppercase">&nbsp;@Model.Content &nbsp;</span></p>
+	<!-- Content -->
+	<div class="pn_article_content box-size-100 inline-block to-left">
+		@Html.Raw(Model.Description)
+		<br>
+		<br>
+		<span class="lb-basic-member box-size-48">&nbsp;@Model.ButtonBasic</span>
+		<span class="lb-premium-member box-size-48 to-right">&nbsp;@Model.ButtonPremium &nbsp;</span>
+		<span class="inline-block box-size-48">&nbsp;@Model.DescriptionBasic</span><span class="inline-block box-size-48 to-right">&nbsp;@Model.DescriptionPremium &nbsp;</span>
+	</div>
+</div>

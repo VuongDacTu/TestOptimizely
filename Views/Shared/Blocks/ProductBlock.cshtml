@@ -1,0 +1,15 @@
+﻿@using Blend.Cms12.Models.Blocks
+@model ProductBlock
+<a class="ll-promo-item" href="@Url.ContentUrl(Model.UrlDetail)" style="margin:0.5rem !important; width:20% !important" >
+    <div class="thumb padding-box-100" style="background-image: url('@Url.ContentUrl(Model.Image)')"></div>
+    <span class="title font_extreme margin-top-larger" style="white-space: pre-wrap;">@Model.Name</span>
+    <span class="font_small margin-top-large" style="white-space: nowrap;">
+        <i class="bi bi-geo-alt"></i>
+        @Model.Location
+    </span>
+    <span class="font_small margin-top-large">
+        <i class="bi bi-clock"></i>
+        @Model.OpenTime.ToString("dd MMM") - @Model.CloseTime.ToString("dd MMM")
+    </span>
+
+</a>

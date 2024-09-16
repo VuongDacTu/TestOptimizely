@@ -1,0 +1,24 @@
+@inherits Blend.Cms12.Views.AlloyPageBase<PageViewModel<ProductPage>>
+
+@{
+    Layout = "~/Views/Shared/Layouts/_TwoPlusOne.cshtml";
+}
+
+<div id="ll-promo-list" class="ll-promo-wrapper box-size-100 ll-slideShow" ll-percent-space="3">
+    <ul class="sld-wrapper">
+        @{
+            foreach (var item in Model.CurrentPage.ContentArea?.FilteredItems ?? Enumerable.Empty<ContentAreaItem>())
+            {
+                var content = item.GetContent();
+
+                if (content != null)
+                {
+                    Html.RenderContentData(content, false);
+                    
+                }     
+            }
+        }
+    </ul>
+    <input type="hidden" name="promotion_page" value="6">
+    <input type="hidden" name="per_page" value="8">
+</div>

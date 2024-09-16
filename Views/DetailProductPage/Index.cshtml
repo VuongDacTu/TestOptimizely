@@ -1,0 +1,14 @@
+﻿@inherits Blend.Cms12.Views.AlloyPageBase<PageViewModel<DetailProductPage>>
+
+@if (Model.CurrentPage?.ContentArea?.Items != null)
+{
+    @foreach (var item in Model.CurrentPage.ContentArea.Items)
+    {
+        var block = item?.GetContent() as ProductBlock;
+        if (block != null)
+        {
+            
+            await Html.RenderPartialAsync("DetailProductBlock", block);
+        }
+    }
+}

@@ -1,0 +1,9 @@
+﻿@using Blend.Cms12.Models.Blocks.Start
+@model Section4ItemBlock
+
+<a class="ll-mall-item content-center" href="@Url.ContentUrl(Model.Url)" target="_blank" rel="noreferrer">
+    <div class="thumb padding-box-75" style="background-image: url('@Url.ContentUrl(Model.Image)')"></div>
+    <span class="title font_larger uppercase">
+        @Model.Content
+    </span>
+</a>

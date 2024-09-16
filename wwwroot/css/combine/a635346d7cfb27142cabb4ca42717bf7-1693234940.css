@@ -1,0 +1,53 @@
+﻿
+
+
+.ll-mall .title {
+    margin-top: -0.3em;
+}
+
+.ll-mall > div:first-child {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mall-description {
+    line-height: 2.1em;
+}
+
+    .mall-description .title {
+        color: #d1d1d1;
+    }
+
+.linked {
+    color: #006ed2;
+}
+
+.coming-soon {
+    padding: 20pt 30pt;
+}
+
+.ic_location,
+.ic_clock {
+    width: 100%;
+}
+
+@media only screen and (max-width: 720px) {
+    .ll-mall > .box-size-48 {
+        width: 100%;
+    }
+
+    .ll-mall > .box-size-50 {
+        width: 100%;
+        margin-top: 1.5em;
+    }
+
+    .mall-description.padding-box-top-bot-10::before {
+        padding-top: 5%;
+    }
+
+    .mall-description.padding-box-top-bot-10::after {
+        padding-bottom: 5%;
+    }
+}

@@ -1,0 +1,24 @@
+﻿@using Blend.Cms12.Models.Blocks.Benefits
+@model EVoucherBlock
+
+<div class="box-size-100 " style="display: block;">
+	<p><span class="title font_extreme bold box-size-100 to-left uppercase">&nbsp;@Model.Content &nbsp;</span></p>
+	<!-- Content -->
+	<div class="pn_article_content box-size-100 inline-block to-left">
+		@Html.Raw(Model.Description)
+		<!-- Point Card -->
+		<div class="point-wrapper box-size-100 padding-box-2">
+            @if (Model?.Voucher?.Items != null)
+            {
+                @foreach (var item in Model.Voucher.Items)
+                {
+                    var block = item?.GetContent() as VoucherBlock;
+                    if (block != null)
+                    {
+                        await Html.RenderPartialAsync("VoucherBlock", block);
+                    }
+                }
+            }
+		</div>
+	</div>
+</div>

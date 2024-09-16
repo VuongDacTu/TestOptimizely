@@ -1,0 +1,23 @@
+﻿@using Blend.Cms12.Models.Blocks.Start
+@using Blend.Cms12.Models.Blocks.DownloadApp
+@model Section2Block
+<div class="home-section-2 ll-frame frame-size-70 border-bottom-dark" style="background-image: url('@Url.ContentUrl(Model.Image)')">
+    <div class="ll-widget-box box-size-60 child-space-ver-10 padding-box-top-bot-30 content-center">
+        <span class="ll-widget-lb-title">@Model.Title </span>
+        <br>
+        <span class="ll-widget-lb-default margin-bottom-larger box-size-100">
+            @Model.Content
+        </span>
+        @if (Model?.Button?.Items != null)
+        {
+            @foreach (var item in Model.Button.Items)
+            {
+                var block = item?.GetContent() as DownloadSelectBlock;
+                if (block != null)
+                {
+                    await Html.RenderPartialAsync("DownloadSelectBlock", block);
+                }
+            }
+        }
+    </div>
+</div>

@@ -1,0 +1,36 @@
+﻿@using Blend.Cms12.Models.Blocks.Lendlease
+@model MallBlock
+<div class="ll-mall ll-frame frame-size-70 padding-box-top-bot-5 border-bottom-dark">
+    <!-- Mall image -->
+    <a href="@Url.ContentUrl(Model.Url)" target="_blank" rel="noreferrer" class="box-size-48 to-left">
+        <img src="@Url.ContentUrl(Model.Image)" class="box-size-100">
+    </a>
+    <!-- Article -->
+    <div class="box-size-50 to-right">
+        <span class="box-size-100 title bold font_extreme inline-block padding-box-bottom-5 uppercase">
+            @Model.Content
+        </span>
+        <span class=" inline-block margin-bottom-large">
+            <i class="bi bi-geo-alt"></i>
+            @Model.Place - <a href="https://goo.gl/maps/z8pZXbSyvQ82" target="_blank" rel="noreferrer" class="underline"> Getting there</a>
+        </span>
+        <span class=" inline-block margin-bottom-large">
+            <i class="bi bi-clock"></i>
+            Operating Hours: @Model.Datetime
+        </span>
+        <div class="mall-description padding-box-top-bot-10 ">
+            <span class="title inline-block to-left box-size-100" style="color:#d1d1d1;margin-top:2.5rem">
+                Description
+            </span>
+            <span style="">
+                <p>@Model.Description</p>
+            </span>
+        </div>
+        <a class="linked inline-block to-left" href="@Url.ContentUrl(Model.Url)" target="_blank" rel="noreferrer">
+            website
+            <span class="font_small">&nbsp;❯&nbsp;</span>
+            @Model.Url
+        </a>
+    </div>
+
+</div>

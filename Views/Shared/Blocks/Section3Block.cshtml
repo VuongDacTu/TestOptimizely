@@ -1,0 +1,88 @@
+﻿@using Blend.Cms12.Models.Blocks.Start
+@using Blend.Cms12.Models.Blocks.DownloadApp
+@model Section3Block
+<style>
+    .ll-promo-list .ll-widget-rounder-button {
+        width: 60px !important;
+    }
+</style>
+<div class="home-section-3 ll-frame frame-size-70  height-auto content-center child-space-ver-10 border-bottom-dark">
+    <div class="tab-group box-size-100 padding-box-5 child-space-horz-25 margin-bottom-larger">
+        <a id="btn_promotion" class="ll-widget-tab-button selected">
+                    <span class="">
+                        @Model.Title1
+                    </span>
+        </a>
+        <a id="btn_event" class="ll-widget-tab-button">
+                    <span>
+                        @Model.Title2
+                    </span>
+        </a>
+    </div>
+    <!-- ------------------------ -->
+    <!-- Promotion List - Slider -->
+    <div id="ll-promo-list" class="ll-promo-wrapper box-size-100 ll-slideShow" ll-percent-space="3" style="">
+        <ul class="sld-wrapper" >
+            <!-- First Page -->
+            <li style="display:flex;justify-content:center;flex-wrap:wrap">
+                @{
+                    foreach (var item in Model.ContentArea1?.FilteredItems ?? Enumerable.Empty<ContentAreaItem>())
+                    {
+                        var content = item.GetContent();
+
+                        if (content != null)
+                        {
+                            Html.RenderContentData(content, false);
+                        }
+                    }
+                }
+            </li>
+        </ul>
+        <!-- Event List -->
+        @if (Model?.Button1?.Items != null)
+        {
+            @foreach (var item in Model.Button1.Items)
+            {
+                var block = item?.GetContent() as DownloadSelectBlock;
+                if (block != null)
+                {
+                    await Html.RenderPartialAsync("DownloadSelectBlock", block);
+                }
+            }
+        }
+        <p class="box-size-100 padding-box-5"></p>
+    </div>
+    <!-- End promotion -->
+    <!-- ------------------------ -->
+    <div id="ll-event-list" style="display: none;" class="ll-promo-wrapper box-size-100 ll-slideShow">
+        <ul class="sld-wrapper">
+            <!-- First Page -->
+            <li>
+                @{
+                    foreach (var item in Model.ContentArea2?.FilteredItems ?? Enumerable.Empty<ContentAreaItem>())
+                    {
+                        var content = item.GetContent();
+
+                        if (content != null)
+                        {
+                            Html.RenderContentData(content, false);
+                        }
+                    }
+                }
+                            </li>
+        </ul>
+        <!-- Event List -->
+        @if (Model?.Button1?.Items != null)
+        {
+            @foreach (var item in Model.Button1.Items)
+            {
+                var block = item?.GetContent() as DownloadSelectBlock;
+                if (block != null)
+                {
+                    await Html.RenderPartialAsync("DownloadSelectBlock", block);
+                }
+            }
+        }        <p class="box-size-100 padding-box-5"></p>
+    </div>
+
+</div>

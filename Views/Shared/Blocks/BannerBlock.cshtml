@@ -1,0 +1,22 @@
+﻿@using Blend.Cms12.Models.Blocks
+@model BannerBlock
+
+<div id="ll-banner" class="ll-frame ll-slideShow" ll-percent-space="0">
+    <ul class="sld-wrapper" style="width: 800%; transition: transform 0.4s ease-in-out; transform: translateX(0%);">
+                    @if (Model?.Image?.Items != null)
+            {
+                @foreach (var item in Model.Image.Items)
+                {
+                    var block = item?.GetContent() as BannerImageBlock;
+                    if (block != null)
+                    {
+                        await Html.RenderPartialAsync("BannerImageBlock", block);
+                    }
+                }
+            }
+
+    </ul>
+    <div class="ll-widget-pager box-size-100">
+        <ul><li><a class="selected"><span></span></a></li><li><a class=""><span></span></a></li><li><a class=""><span></span></a></li><li><a class=""><span></span></a></li><li><a class=""><span></span></a></li><li><a class=""><span></span></a></li><li><a class=""><span></span></a></li><li><a class=""><span></span></a></li></ul>
+    </div>
+</div>

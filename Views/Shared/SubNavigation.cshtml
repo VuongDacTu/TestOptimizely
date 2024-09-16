@@ -1,0 +1,22 @@
+@model IPageViewModel<SitePageData>
+
+@{
+    HelperResult ItemTemplate(HtmlHelpers.MenuItem item)
+    {
+        <li class="">
+            <a href="@Url.ContentUrl(item.Page.PageLink)" class="@(item.Selected ? "border-selected" : null)">
+                @item.Page.PageName
+            </a>
+            @if (item.Selected )
+            {
+                <ul class="sub-menu">
+                    @Html.MenuList(item.Page.ContentLink, ItemTemplate)
+                </ul>
+            }
+        </li>
+        return new HelperResult(w => Task.CompletedTask);
+    }
+}
+<ul class="sub-menu" style="width: 83.7043%;">
+    @Html.MenuList(Model.Section.ContentLink, ItemTemplate)
+</ul>
