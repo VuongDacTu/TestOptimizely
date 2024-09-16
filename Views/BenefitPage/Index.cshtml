@@ -1,6 +1,16 @@
 ﻿@inherits Blend.Cms12.Views.AlloyPageBase<PageViewModel<BenefitPage>>
+
 @{
-    Layout = "~/Views/Shared/Layouts/_LeftNavigation.cshtml";
+    if(Model.CurrentPage.Name == "Benefits")
+    {
+        Layout = "~/Views/Shared/Layouts/_LeftNavigation.cshtml";
+
+    }
+    else
+    {
+        Layout = "~/Views/Shared/Layouts/_Nav.cshtml";
+
+    }
 }
 
 <div id="pn_article_root" class="box-size-75 to-right">

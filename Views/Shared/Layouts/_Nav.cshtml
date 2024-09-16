@@ -1,0 +1,24 @@
+﻿@model IPageViewModel<SitePageData>
+
+@{
+    Layout = "~/Views/Shared/Layouts/_Root.cshtml";
+}
+
+@{
+    await Html.RenderPartialAsync("Breadcrumbs", Model);
+}
+<div class="ll-frame frame-size-70 padding-box-4">
+    <div class="ll-sub-menu-wrapper box-size-25">
+        <span class="font_x_extreme bold">Benefits</span>
+        @* sub menu *@
+        @{
+            await Html.RenderPartialAsync("Navigation", Model);
+        }
+        @RenderSection("RelatedContent", false)
+    </div>
+    <!-- Article Content -->
+    <div id="" class="box-size-75 to-right">
+        @RenderBody()
+    </div>
+</div>
+
